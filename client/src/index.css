@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* font-family: 'Poppins', sans-serif;  */
+
+/* navbar css */
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 26px;
+  text-transform: uppercase;
+  box-shadow: 0px 8px 6px -6px gray;
+  border-bottom: 0.5px solid gray !important;
+}
+.active {
+  border-bottom: 2px solid black;
+}
+
+/* ====Footer==== */
+.footer {
+  color: white;
+  padding: 25px;
+  background: rgb(21, 21, 22);
+  background: linear-gradient(
+    90deg,
+    rgba(21, 21, 22, 1) 0%,
+    rgba(139, 120, 106, 1) 92%,
+    rgba(153, 137, 126, 1) 100%
+  );
+}
+.footer a {
+  text-decoration: none;
+  color: whitesmoke;
+  padding: 12px;
+}
+
+.footer a:hover {
+  color: burlywood;
+  border-bottom: 1px solid burlywood;
+}
+
+/* Page Not Found  */
+.pnf {
+  display: flex;
+  flex-direction: column;
+  min-height: 65vh;
+  align-items: center;
+  justify-content: center;
+}
+.pnf-title {
+  font-size: 100px;
+  font-weight: 700;
+}
+.pnf-heading {
+  font-weight: normal;
+}
+
+.pnf-btn {
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: 10px;
+  margin-top: 10px;
+}
+.pnf-btn:hover {
+  background-color: black;
+  color: whitesmoke;
+}
+.contactus {
+  margin: 0;
+  padding: 0;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====Register==== */
+.register {
+  display: flex;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-image: linear-gradient(0deg, #ffdee9 0%, #6b807f 100%);
+}
+.register form {
+  box-shadow: rgba(139, 120, 106, 1) 0px 5px 15px;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+}
+
+.register form .title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-family: "Playfair Display", serif;
+}
+.register form input {
+  border: none;
+  border-bottom: 1px solid #000;
+}
+.register form button {
+  border: 1px solid black;
+  background-color: #6b807f;
+  width: 250px;
+}
