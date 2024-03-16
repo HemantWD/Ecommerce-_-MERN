@@ -35,7 +35,7 @@ const registerController = async (req, res) => {
       });
     }
 
-    // register
+    // hashing the password
     const hashedPassword = await hashPassword(password);
     // save
     const user = await new userModel({
@@ -91,7 +91,7 @@ const loginController = async (req, res) => {
 
     // token creation
     const token = await JWT.sign({ _id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "7d",
+      expiresIn: "1d",
     });
     res.status(200).send({
       success: true,
@@ -134,7 +134,7 @@ const forgotPasswordController = async (req, res) => {
     if (!user) {
       res
         .status(404)
-        .send({ success: false, message: "Wronf Email or password" });
+        .send({ success: false, message: "Invalid Email or Answer" });
     }
     const hashed = await hashPassword(newPassword);
     await userModel.findByIdAndUpdate(user._id, { password: hashed });

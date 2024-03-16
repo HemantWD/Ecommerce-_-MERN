@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { SiShopee } from "react-icons/si";
 import { useAuth } from "../../context/Auth";
 import toast from "react-hot-toast";
 
@@ -33,11 +32,11 @@ const Headers = () => {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-              <SiShopee /> Ecommerce App
+              🛒 Ecommerce App
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink to="/" className="nav-link" aria-current="page">
+                <NavLink to="/" className="nav-link">
                   Home
                 </NavLink>
               </li>

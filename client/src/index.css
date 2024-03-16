@@ -19,6 +19,14 @@
 .active {
   border-bottom: 2px solid black;
 }
+.nav-link{
+  font-weight: 300 !important;
+}
+.navbar-brand{
+  font-weight: 700;
+  font-family: 'roboto','sans-serif';
+  letter-spacing: 3px
+}
 
 /* ====Footer==== */
 .footer {
@@ -41,6 +49,8 @@
 .footer a:hover {
   color: burlywood;
   border-bottom: 1px solid burlywood;
+  transition: 0.5s;
+ 
 }
 
 /* Page Not Found  */

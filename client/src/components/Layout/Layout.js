@@ -25,7 +25,7 @@ const Layout = (props) => {
 };
 
 Layout.defaultProps = {
-  title: "Ecommerce App",
+  title: "Ecommerce App - shop Now",
   description: "MERN stack project",
   keywords: "mern,react,nodejs,mongodb,redux",
   author: "HemantWD",

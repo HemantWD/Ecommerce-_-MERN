@@ -18,7 +18,7 @@ const Forgot = () => {
         `${process.env.REACT_APP_API}/api/v1/auth/forgot-password`,
         { email, newPassword, answer }
       );
-      if (res.data.success) {
+      if (res && res.data.success) {
         toast.success(res.data.message);
 
         navigate("/login");
