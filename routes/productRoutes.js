@@ -9,6 +9,7 @@ import {
   productFilterController,
   productListController,
   productPhotoController,
+  relatedProductController,
   searchProductController,
   updateProductController,
 } from "../controllers/productConroller.js";
@@ -34,28 +35,31 @@ router.put(
   updateProductController
 );
 
-// METHOD:GET  || route to get all products
+//*  METHOD:GET    || route to get all products
 router.get("/get-product", getProductController);
 
-// METHOD:GET  || route to get single product
+//* METHOD:GET    || route to get single product
 router.get("/get-product/:slug", getSingleController);
 
-// METHOD:GET  || get photo
+//* METHOD:GET    || get photo
 router.get("/product-photo/:pid", productPhotoController);
 
-// METHOD:DELETE || delete a product
+//* METHOD:DELETE || delete a product
 router.delete("/deleteProduct/:pid", deleteProductController);
 
-// filter product
+//* METHOD:POST   || filter product
 router.post("/product-filters", productFilterController);
 
-// product count
+//* METHOD:GET    ||  product count
 router.get("/product-count", productCountController);
 
-// product per page
+//* METHOD:GET    || product per page
 router.get("/product-list/:page", productListController);
 
-// search Product
+//* METHOD:GET    || search Product
 router.get("/search/:keyword", searchProductController);
+
+//* METHOD:GET    || get request to fetch similar products
+router.get("/related-product/:pid/:cid", relatedProductController);
 
 export default router;
