@@ -66,8 +66,8 @@ export const categoryController = async (req, res) => {
     const category = await categoryModel.find({});
     res.status(200).send({
       success: true,
-      category,
       message: "All Category Reterived",
+      category,
     });
   } catch (error) {
     console.log(error);
