@@ -29,10 +29,20 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/auth/register`,
+      const { data } = await axios.put(
+        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
         { name, email, password, phone, address }
       );
+      if (data?.error) {
+        toast.error(data?.error);
+      } else {
+        setAuth({ ...auth, user: data?.updatedUser });
+        let ls = localStorage.getItem("auth");
+        ls = JSON.parse(ls);
+        ls.user = data.updatedUser;
+        localStorage.setItem("auth", JSON.stringify(ls));
+        toast.success("Profile Updated Successfully");
+      }
     } catch (error) {
       console.log(error);
       toast.error("Something Went Wrong");
@@ -56,7 +66,6 @@ const Profile = () => {
                   className="form-control"
                   id="exampleInputName"
                   placeholder="Enter Your Name"
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -67,7 +76,6 @@ const Profile = () => {
                   className="form-control"
                   id="exampleInputEmail1"
                   placeholder="Enter Your Email"
-                  required
                   disabled
                 />
               </div>
@@ -79,7 +87,6 @@ const Profile = () => {
                   className="form-control"
                   placeholder="Enter Your Password"
                   id="exampleInputPassword"
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -90,7 +97,6 @@ const Profile = () => {
                   className="form-control"
                   id="exampleInputPhone"
                   placeholder="Enter Phone Number"
-                  required
                 />
               </div>
               <div className="mb-3">
@@ -101,7 +107,6 @@ const Profile = () => {
                   className="form-control"
                   id="exampleInputAddress"
                   placeholder="Enter Your Address"
-                  required
                 />
               </div>
 
