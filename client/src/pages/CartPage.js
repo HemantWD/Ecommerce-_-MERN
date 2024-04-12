@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import "../styles/CartStyles.css";
 
 const CartPage = () => {
   const [cart, setCart] = useCart();
@@ -81,11 +82,13 @@ const CartPage = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="cart-page">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
-              {`Hello ${auth?.token && auth?.user?.name}`}
+              {!auth?.user
+                ? "Hello Guest"
+                : `Hello  ${auth?.token && auth?.user?.name}`}
             </h1>
             <h4 className=" text-center">
               {cart.length
@@ -100,8 +103,6 @@ const CartPage = () => {
           <div className="col-md-8">
             {cart?.map((p) => (
               <div key={p._id} className="row mb-2 p-3 card flex-row">
-                {" "}
-                {/* Added key prop */}
                 <div className="col-md-4">
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
@@ -111,12 +112,14 @@ const CartPage = () => {
                     height={"150px"}
                   />
                 </div>
-                <div className="col-md-8">
+                <div className="col-md-4">
                   <p>{p.name}</p>
                   <p>{p.description.substring(0, 30)}</p>
                   <p>Price : {p.price}</p>
+                </div>
+                <div className="col-md-4 cart-remove-btn">
                   <button
-                    className=" btn btn-danger"
+                    className="btn btn-danger"
                     onClick={() => removeCartItem(p._id)}
                   >
                     Remove
